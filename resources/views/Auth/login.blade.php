@@ -37,6 +37,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Login</button>
+                <div class="mt-3 text-center"> Don't have an account? <a href="{{ route('auth.register.form') }}">Register</a></div>
             </form>
         </div>
     </div>

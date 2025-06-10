@@ -15,4 +15,8 @@ Route::delete('/users/{user}', [UserController::class, 'delete'])->name('user.de
 //loginAuth
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
+//Register/log
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('auth.register.form');
+Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
