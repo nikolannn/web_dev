@@ -24,7 +24,8 @@ class UserController extends Controller
         $addNew = new User();
         $addNew->name = $request->name;
         $addNew->email = $request->email;
-        $addNew->password = $request->password;
+        $addNew->password = bcrypt($request->password); // <--- FIXED
+
         $addNew->save();
 
         return back()->with('success', 'User has been added successfully!');
@@ -53,7 +54,7 @@ class UserController extends Controller
     }
 
     // Delete a user
-    public function destroy($id)
+    public function delete($id)
     {
         $user = User::findOrFail($id);
         $user->delete();

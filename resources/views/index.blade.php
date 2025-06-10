@@ -20,6 +20,12 @@
                 </div>
             @endif
 
+            </button>
+            {{-- Logout Button --}}
+        <a href="#" class="btn btn-danger">Logout</a>
+        </button>   
+    </div>
+
             {{-- Create New User --}}
             <div class="card shadow mb-4">
                 <div class="card-header bg-primary text-white text-center">
@@ -108,10 +114,13 @@
                                                         <label>Email</label>
                                                         <input type="email" name="email" class="form-control" value="{{ $user->email }}" required>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label>Password (leave blank to keep current)</label>
-                                                        <input type="password" name="password" class="form-control">
-                                                    </div>
+                                                   <div class="mb-3">
+                                                    <label class="form-label">Password</label>
+                                                    <input type="password" name="password" class="form-control" value="{{ $user->password }}" placeholder="Leave blank to keep current password">Add commentMore actions
+                                                    @error('password')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
